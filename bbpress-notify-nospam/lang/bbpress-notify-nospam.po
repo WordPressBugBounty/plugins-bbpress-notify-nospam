@@ -1,0 +1,701 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: bbPress Notify (No-Spam)\n"
+"POT-Creation-Date: 2021-06-12 20:35-0400\n"
+"PO-Revision-Date: 2021-06-12 20:35-0400\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: bbpress-notify-nospam.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: bbpress-notify-nospam.php:117
+#, php-format
+msgid ""
+"bbPress Notify (No-Spam) 1.x -> 2.x conversion was successful. Click <a href="
+"\"%s\">here</a> to go back to your WP Admin."
+msgstr ""
+
+#: bbpress-notify-nospam.php:184
+msgid "Sorry, you need to activate bbPress first."
+msgstr ""
+
+#: bbpress-notify-nospam.php:237
+msgid ""
+"<strong>bbPress Notify (No-Spam)</strong> could not find an active bbPress "
+"plugin. It will not load until bbPress is installed and active."
+msgstr ""
+
+#: includes/controller/admin_core.class.php:30
+#: includes/controller/admin_core.class.php:33
+msgid "Notifications"
+msgstr ""
+
+#: includes/controller/admin_core.class.php:43
+#: includes/controller/settings.class.php:278
+msgid "Settings"
+msgstr ""
+
+#: includes/controller/admin_notices.class.php:184
+#, php-format
+msgid "Invalid message code %s"
+msgstr ""
+
+#: includes/controller/admin_notices.class.php:242
+msgid "Invalid post_id."
+msgstr ""
+
+#: includes/controller/admin_notices.class.php:243
+msgid "Invalid parameter type."
+msgstr ""
+
+#: includes/controller/admin_notices.class.php:244
+msgid "The old bbpress-notify plugin has been deactivated in favor of bbpnns."
+msgstr ""
+
+#: includes/controller/admin_notices.class.php:245
+msgid ""
+"<div><strong>We need to convert your bbpnns v1.x data into the v2.x format.</"
+"strong> \n"
+"\t\t\t\t\t\t<a href=\"#\" id=\"bbpnns-convert-v1-to-v2\" class=\"button "
+"button-primary\">Run Update</a>\n"
+"\t\t\t\t\t\t<div class=\"bbpnns_spinner\"></div></div>"
+msgstr ""
+
+#: includes/controller/ajax.class.php:42 includes/controller/ajax.class.php:128
+#: includes/controller/ajax.class.php:199
+msgid "Invalid nonce"
+msgstr ""
+
+#: includes/controller/ajax.class.php:205
+msgid "There was a problem updating the database."
+msgstr ""
+
+#: includes/controller/ajax.class.php:211
+msgid "<strong>Database update completed successfully!</strong>"
+msgstr ""
+
+#: includes/controller/settings.class.php:131
+#, php-format
+msgid ""
+"<strong>WARNING</strong>, you are using <strong>%1$s</strong> but do not "
+"have <strong>%2$s</strong> installed/active. Setting role-based "
+"notifications will send messages to *all* members of the selected roles. <a "
+"href=\"%3$s\" target=\"_blank\">Click here</a> to get the add-on so that "
+"bbpnns and %4$s can play nicely."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+#: includes/controller/settings.class.php:258
+#: includes/controller/settings.class.php:259
+msgid "bbPress Notify (No-Spam)"
+msgstr ""
+
+#: includes/controller/settings.class.php:305
+msgid "Add-ons"
+msgstr ""
+
+#: includes/controller/settings.class.php:331
+msgid "E-mail Notifications"
+msgstr ""
+
+#: includes/controller/settings.class.php:346
+#, php-format
+msgid ""
+"Looking for bbPress Notify (No-Spam) settings? We've moved. <a href=\"%s"
+"\">Check out our new settings page.</a>"
+msgstr ""
+
+#: includes/dal/dry_run_dao.class.php:88
+msgid "No title"
+msgstr ""
+
+#: includes/dal/dry_run_dao.class.php:89
+#, php-format
+msgid "%s, %s ID %d"
+msgstr ""
+
+#: includes/helper/converter.class.php:23
+msgid "Conversion successful!"
+msgstr ""
+
+#: includes/helper/converter.class.php:24
+msgid "There was an error converting your database. Please contact support."
+msgstr ""
+
+#: includes/model/settings.class.php:139 t/01-model-settings.t.php:77
+msgid "[[blogname]] New topic: [topic-title]"
+msgstr ""
+
+#: includes/model/settings.class.php:145 t/01-model-settings.t.php:78
+msgid "[[blogname]] New reply for [topic-title]"
+msgstr ""
+
+#: includes/model/settings.class.php:151 t/01-model-settings.t.php:79
+msgid ""
+"Hello!\n"
+"A new topic has been posted by [topic-author].\n"
+"Topic title: [topic-title]\n"
+"Topic url: [topic-url]\n"
+"\n"
+"Excerpt:\n"
+"[topic-excerpt]"
+msgstr ""
+
+#: includes/model/settings.class.php:157 t/01-model-settings.t.php:80
+msgid ""
+"Hello!\n"
+"A new reply has been posted by [reply-author].\n"
+"Topic title: [reply-title]\n"
+"Topic url: [reply-url]\n"
+"\n"
+"Excerpt:\n"
+"[reply-excerpt]"
+msgstr ""
+
+#: includes/model/settings.class.php:181
+msgid "New Topic Email Subject"
+msgstr ""
+
+#: includes/model/settings.class.php:182
+msgid "New Reply Email Subject"
+msgstr ""
+
+#: includes/model/settings.class.php:183
+msgid "New Topic Email Body"
+msgstr ""
+
+#: includes/model/settings.class.php:184
+msgid "New Reply Email Body"
+msgstr ""
+
+#: includes/model/settings.class.php:185
+msgid "Recipients for New Topics"
+msgstr ""
+
+#: includes/model/settings.class.php:186
+msgid "Recipients for New Replies"
+msgstr ""
+
+#: includes/model/settings.class.php:187
+msgid "Encode Subject"
+msgstr ""
+
+#: includes/model/settings.class.php:188
+msgid "Notify New Topics in Background"
+msgstr ""
+
+#: includes/model/settings.class.php:189
+msgid "Notify New Replies in Background"
+msgstr ""
+
+#: includes/model/settings.class.php:190
+#: includes/view/templates/settings/general_body.tmpl.php:58
+msgid "Background Notifications"
+msgstr ""
+
+#: includes/model/settings.class.php:191
+msgid "Default Topic Notification Checkbox"
+msgstr ""
+
+#: includes/model/settings.class.php:192
+msgid "Default Reply Notification Checkbox"
+msgstr ""
+
+#: includes/model/settings.class.php:193
+msgid "Override bbPress Forum Subscriptions"
+msgstr ""
+
+#: includes/model/settings.class.php:194
+msgid "Override bbPress Topic Subscriptions"
+msgstr ""
+
+#: includes/model/settings.class.php:195
+msgid "Also notify <em>forum</em> subscribers of new replies"
+msgstr ""
+
+#: includes/model/settings.class.php:196
+msgid "Automatically subscribe forum subscribers to new topics."
+msgstr ""
+
+#: includes/model/settings.class.php:197
+#: includes/view/templates/settings/topics_body.tmpl.php:103
+msgid "Automatically subscribe new users to all forums."
+msgstr ""
+
+#: includes/model/settings.class.php:198
+msgid "Notify Authors of their Topics"
+msgstr ""
+
+#: includes/model/settings.class.php:199
+msgid "Notify Authors of their Replies"
+msgstr ""
+
+#: includes/model/settings.class.php:200
+msgid "Only Notify Admins if Forum is Hidden"
+msgstr ""
+
+#: includes/model/settings.class.php:201
+msgid "Only Notify Admins if Topic is Hidden"
+msgstr ""
+
+#: includes/model/settings.class.php:202
+msgid "Message Type"
+msgstr ""
+
+#: includes/model/settings.class.php:203
+#: includes/view/templates/settings/general_body.tmpl.php:20
+msgid "From Name"
+msgstr ""
+
+#: includes/model/settings.class.php:204
+#: includes/view/templates/settings/general_body.tmpl.php:30
+msgid "From Email"
+msgstr ""
+
+#: includes/model/settings.class.php:321
+msgid "Invalid value for Message Type"
+msgstr ""
+
+#: includes/view/metaboxes.class.php:28
+msgid "Send notification."
+msgstr ""
+
+#: includes/view/settings.class.php:28
+msgid "General"
+msgstr ""
+
+#: includes/view/settings.class.php:29
+msgid "Topics"
+msgstr ""
+
+#: includes/view/settings.class.php:30
+msgid "Replies"
+msgstr ""
+
+#: includes/view/settings.class.php:32
+msgid "Support"
+msgstr ""
+
+#: includes/view/settings.class.php:111
+msgid "Global Settings"
+msgstr ""
+
+#: includes/view/settings.class.php:114
+msgid "Topics Settings"
+msgstr ""
+
+#: includes/view/settings.class.php:117
+msgid "Replies Settings"
+msgstr ""
+
+#: includes/view/settings.class.php:120
+msgid "Support Info"
+msgstr ""
+
+#: includes/view/templates/addons_page.tmpl.php:2
+msgid "bbPress Notify (No-Spam) Add-Ons"
+msgstr ""
+
+#: includes/view/templates/addons_page.tmpl.php:3
+msgid "Add-On list"
+msgstr ""
+
+#: includes/view/templates/addons_page.tmpl.php:5
+msgid ""
+"bbPress Notify (No-Spam) is a great plugin for notifications, but you "
+"already knew that (or you wouldn't be using it, right?). \n"
+"What makes it even greater are the several add-on extensions available. "
+"Check out all of the options below, as there's bound to be something you "
+"like."
+msgstr ""
+
+#: includes/view/templates/addons_page.tmpl.php:24
+msgid "Active"
+msgstr ""
+
+#: includes/view/templates/addons_page.tmpl.php:29
+msgid "Manage License"
+msgstr ""
+
+#: includes/view/templates/addons_page.tmpl.php:34
+msgid "More Details"
+msgstr ""
+
+#: includes/view/templates/addons_page.tmpl.php:47
+msgid "Installed version:"
+msgstr ""
+
+#: includes/view/templates/addons_page.tmpl.php:49
+msgid "Update available"
+msgstr ""
+
+#: includes/view/templates/addons_page.tmpl.php:56
+msgid "Latest version:"
+msgstr ""
+
+#: includes/view/templates/addons_page.tmpl.php:59
+msgid "<strong>Recommended!</strong>"
+msgstr ""
+
+#: includes/view/templates/plugin_settings.tmpl.php:2
+msgid "bbPress Notify (No-Spam) Settings"
+msgstr ""
+
+#: includes/view/templates/settings/general_body.tmpl.php:25
+#, php-format
+msgid "Leave empty to use the site name (<em>%s</em>)."
+msgstr ""
+
+#: includes/view/templates/settings/general_body.tmpl.php:35
+#, php-format
+msgid ""
+"Leave empty to use the admin email found in Settings > General > "
+"Administration Email Address (<em>%s</em>)."
+msgstr ""
+
+#: includes/view/templates/settings/general_body.tmpl.php:40
+msgid "Email Type"
+msgstr ""
+
+#: includes/view/templates/settings/general_body.tmpl.php:43
+msgid "HTML"
+msgstr ""
+
+#: includes/view/templates/settings/general_body.tmpl.php:44
+msgid "Plain Text"
+msgstr ""
+
+#: includes/view/templates/settings/general_body.tmpl.php:45
+msgid "Both"
+msgstr ""
+
+#: includes/view/templates/settings/general_body.tmpl.php:49
+msgid ""
+"Choose the type of emails you want your subscribers to receive. \n"
+"\t\tChoosing <code>Both</code> sends out a single message in both "
+"<code>HTML</code> and <code>Plain Text</code> format, and it's up to the "
+"user's email client to decide which one to display\n"
+"\t\tbased on their preferences."
+msgstr ""
+
+#: includes/view/templates/settings/general_body.tmpl.php:63
+msgid "Send emails in the background the next time the site is visited."
+msgstr ""
+
+#: includes/view/templates/settings/general_body.tmpl.php:69
+msgid "Subject Line Encoding"
+msgstr ""
+
+#: includes/view/templates/settings/general_body.tmpl.php:74
+msgid "Encode Subject line using UTF-8."
+msgstr ""
+
+#: includes/view/templates/settings/general_body.tmpl.php:78
+msgid ""
+"The option above is disabled because your host did not provide the PHP "
+"function <code>iconv_mime_encode</code>. \n"
+"\t\t\t\t\tThis is unusual. Perhaps you could consider <a href=\"https://"
+"usestrict.net/go/siteground\" target=\"_new\">changing to a better one</a>?</"
+"span>"
+msgstr ""
+
+#: includes/view/templates/settings/general_body.tmpl.php:83
+msgid ""
+"Turn this option ON if you're seeing HTML entities in your email subject "
+"lines such as <code>&amp;dash;</code>\n"
+"\t\t\t       \t\tLeave it OFF if you're using a third party email plugin "
+"that already does this for you, or if you see extra question marks in the "
+"email subject."
+msgstr ""
+
+#: includes/view/templates/settings/replies_body.tmpl.php:7
+#: includes/view/templates/settings/topics_body.tmpl.php:22
+msgid "Select one or more Roles"
+msgstr ""
+
+#: includes/view/templates/settings/replies_body.tmpl.php:33
+#: includes/view/templates/settings/topics_body.tmpl.php:48
+msgid "Recipients"
+msgstr ""
+
+#: includes/view/templates/settings/replies_body.tmpl.php:34
+msgid ""
+"Select one or more roles below to determine which users will be notified of "
+"new Replies."
+msgstr ""
+
+#: includes/view/templates/settings/replies_body.tmpl.php:51
+msgid ""
+"By selecting roles, all users of the selected roles will receive a "
+"notification of each new reply.<br>\n"
+"\t\t\t\tYou can also leave none selected and check only the \"Override "
+"Subscriptions to Topics\" option. That way only users who have explicitly "
+"subscribed to a \n"
+"\t\t\t\tgiven topic will receive new reply notifications."
+msgstr ""
+
+#: includes/view/templates/settings/replies_body.tmpl.php:58
+msgid "Admin UI Reply Notifications"
+msgstr ""
+
+#: includes/view/templates/settings/replies_body.tmpl.php:63
+#: includes/view/templates/settings/topics_body.tmpl.php:78
+msgid "Make \"Send Notifications\" option checked by default."
+msgstr ""
+
+#: includes/view/templates/settings/replies_body.tmpl.php:65
+msgid ""
+"This option controls the status of the \"Send Notifications\" \n"
+"\t\t\t\t\t       \t\t\t\t\t\t\t\t\t\tcheckbox in the New/Edit Reply Admin "
+"Screen"
+msgstr ""
+
+#: includes/view/templates/settings/replies_body.tmpl.php:73
+msgid "bbPress Topics Subscriptions Override"
+msgstr ""
+
+#: includes/view/templates/settings/replies_body.tmpl.php:78
+msgid "Override Subscriptions to Topics."
+msgstr ""
+
+#: includes/view/templates/settings/replies_body.tmpl.php:80
+msgid ""
+"Enable this option if you want bbPress Notify (No-Spam) to handle bbPress "
+"subscriptions to Topics (new replies).\n"
+"The bbPress Setting \"Allow users to subscribe to forums and replies\" must "
+"also be enabled for this to work.<br><a target=\"_blank\" href=\"https://"
+"usestrict.net/2013/02/bbpress-notify-nospam/#subscriptions\">Click here to "
+"learn more.</a>"
+msgstr ""
+
+#: includes/view/templates/settings/replies_body.tmpl.php:87
+msgid "Also notify <em>forum</em> subscribers of new replies."
+msgstr ""
+
+#: includes/view/templates/settings/replies_body.tmpl.php:89
+msgid ""
+"Enabling this option will include the forum's subscribers in new replies, "
+"<strong>without</strong> subscribing them, and therefore without option to "
+"opt-out without the Opt Out Add-on. Consider using the Topics option instead."
+msgstr ""
+
+#: includes/view/templates/settings/replies_body.tmpl.php:95
+msgid "Notify authors of their own replies"
+msgstr ""
+
+#: includes/view/templates/settings/replies_body.tmpl.php:100
+msgid "Authors must also receive a notification when they create a reply."
+msgstr ""
+
+#: includes/view/templates/settings/replies_body.tmpl.php:106
+#: includes/view/templates/settings/topics_body.tmpl.php:132
+msgid "Force Admin-only emails if Forum is hidden"
+msgstr ""
+
+#: includes/view/templates/settings/replies_body.tmpl.php:111
+msgid "Only admins should be notified of new replies in hidden forums."
+msgstr ""
+
+#: includes/view/templates/settings/replies_body.tmpl.php:114
+#: includes/view/templates/settings/topics_body.tmpl.php:140
+msgid ""
+"Looking to have group forums? Try <a href=\"https://wordpress.org/plugins/"
+"bbp-private-groups/\" target=\"_blank\">Private Groups</a>\n"
+"\t\t\t\tand our premium <a href=\"https://usestrict.net/product/bbpress-"
+"notify-no-spam-private-groups-bridge/\" target=\"_new\">Private Groups "
+"Bridge</a> add-on."
+msgstr ""
+
+#: includes/view/templates/settings/replies_body.tmpl.php:121
+msgid "Reply E-mail Subject Line"
+msgstr ""
+
+#: includes/view/templates/settings/replies_body.tmpl.php:126
+#: includes/view/templates/settings/replies_body.tmpl.php:140
+#: includes/view/templates/settings/topics_body.tmpl.php:152
+#: includes/view/templates/settings/topics_body.tmpl.php:166
+#, php-format
+msgid "<strong>Available Tags</strong>: %s."
+msgstr ""
+
+#: includes/view/templates/settings/replies_body.tmpl.php:133
+msgid "Reply E-mail Body"
+msgstr ""
+
+#: includes/view/templates/settings/support/dry_run_box.tmpl.php:4
+msgid "Dry Run"
+msgstr ""
+
+#: includes/view/templates/settings/support/dry_run_box.tmpl.php:7
+msgid ""
+"<p>This plugin comes with a <em>lot</em> of settings to help you decide who "
+"gets emails and who doesn't. And then there are all of the add-ons that make "
+"even more\n"
+"\t\tadjustments possible. With all of these moving parts, it's virtually "
+"impossible to know off hand how many/which users make it \n"
+"\t\tto the recipients list.</p>"
+msgstr ""
+
+#: includes/view/templates/settings/support/dry_run_box.tmpl.php:11
+msgid ""
+"<p>Use the dry-run tool below to see who your settings will affect. Note "
+"that absolutely *no* messages get sent out during this process. \n"
+"\t\tTo make it as real as possible, you'll need to select a topic or a reply "
+"to mimic the notification.</p>"
+msgstr ""
+
+#: includes/view/templates/settings/support/dry_run_box.tmpl.php:36
+msgid "Select a Test Type"
+msgstr ""
+
+#: includes/view/templates/settings/support/dry_run_box.tmpl.php:88
+msgid "Search..."
+msgstr ""
+
+#: includes/view/templates/settings/support/dry_run_box.tmpl.php:134
+msgid "Topic"
+msgstr ""
+
+#: includes/view/templates/settings/support/dry_run_box.tmpl.php:135
+msgid "Reply"
+msgstr ""
+
+#: includes/view/templates/settings/support/dry_run_box.tmpl.php:148
+msgid "Running test&hellip;"
+msgstr ""
+
+#: includes/view/templates/settings/support/dry_run_box.tmpl.php:155
+msgid "Run Test"
+msgstr ""
+
+#: includes/view/templates/settings/support/support_box.tmpl.php:1
+msgid ""
+"The information below is important to help us troubleshoot any issues you "
+"may be having with bbpnns. \n"
+"Due to the possibly sensitive nature of the information provided, wait for "
+"instructions before pasting it\n"
+"when contacting support in the public wordpress.org forums."
+msgstr ""
+
+#: includes/view/templates/settings/support/support_box.tmpl.php:5
+msgid "Click the 'Select for Support' button below, then Ctrl+C (⌘+C on Mac)."
+msgstr ""
+
+#: includes/view/templates/settings/support/support_box.tmpl.php:24
+msgid "Select for Support"
+msgstr ""
+
+#: includes/view/templates/settings/support/support_box.tmpl.php:25
+msgid "Now Ctrl+C (⌘+C on Mac)"
+msgstr ""
+
+#: includes/view/templates/settings/topics_body.tmpl.php:49
+msgid ""
+"Select one or more roles below to determine which users will be notified of "
+"new Topics."
+msgstr ""
+
+#: includes/view/templates/settings/topics_body.tmpl.php:66
+msgid ""
+"By selecting roles, all users of the selected roles will receive a "
+"notification of each new topic.<br>\n"
+"\t\t\t\tYou can also leave none selected and check only the \"Override "
+"Subscriptions to Forums\" option. That way only users who have explicitly "
+"subscribed to a \n"
+"\t\t\t\tgiven forum will receive notifications."
+msgstr ""
+
+#: includes/view/templates/settings/topics_body.tmpl.php:73
+msgid "Admin UI Topic Notifications"
+msgstr ""
+
+#: includes/view/templates/settings/topics_body.tmpl.php:80
+msgid ""
+"This option controls the status of the \"Send Notifications\" \n"
+"\t\t\t\t\t       \t\t\t\t\t\t\t\t\t\tcheckbox in the New/Edit Topic Admin "
+"Screen"
+msgstr ""
+
+#: includes/view/templates/settings/topics_body.tmpl.php:88
+msgid "bbPress Forums Subscriptions Override"
+msgstr ""
+
+#: includes/view/templates/settings/topics_body.tmpl.php:93
+msgid "Override Subscriptions to Forums."
+msgstr ""
+
+#: includes/view/templates/settings/topics_body.tmpl.php:95
+msgid ""
+"Enable this option if you want bbPress Notify (No-Spam) to handle bbPress "
+"subscriptions to Forums (new topics).\n"
+"The bbPress Setting \"Allow users to subscribe to forums and topics\" must "
+"also be enabled for this to work.<br><a target=\"_blank\" href=\"https://"
+"usestrict.net/2013/02/bbpress-notify-nospam/#subscriptions\">Click here to "
+"learn more.</a>"
+msgstr ""
+
+#: includes/view/templates/settings/topics_body.tmpl.php:105
+msgid ""
+"Enabling this option will make it so that users get subscribed to all forums "
+"the moment that they're registered  They can unsubscribe from the forums "
+"later to stop receiving topic notifications."
+msgstr ""
+
+#: includes/view/templates/settings/topics_body.tmpl.php:113
+msgid "Automatically subscribe all forum subscribers to newly created topics."
+msgstr ""
+
+#: includes/view/templates/settings/topics_body.tmpl.php:115
+msgid ""
+"Enabling this option will pull all of the forum subscribers and "
+"automatically subscribe them to the new topic so that they get notifications "
+"of new replies as well. They can unsubscribe from the topic later to stop "
+"receiving reply notifications."
+msgstr ""
+
+#: includes/view/templates/settings/topics_body.tmpl.php:121
+msgid "Notify authors of their own Topics"
+msgstr ""
+
+#: includes/view/templates/settings/topics_body.tmpl.php:126
+msgid "Authors must also receive a notification when they create a topic."
+msgstr ""
+
+#: includes/view/templates/settings/topics_body.tmpl.php:137
+msgid "Only admins should be notified of new topics in hidden forums."
+msgstr ""
+
+#: includes/view/templates/settings/topics_body.tmpl.php:147
+msgid "Topic E-mail Subject Line"
+msgstr ""
+
+#: includes/view/templates/settings/topics_body.tmpl.php:159
+msgid "Topic E-mail Body"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Sends email notifications upon topic/reply creation, as long as it's not "
+"flagged as spam. If you like this plugin, <a href=\"https://wordpress.org/"
+"support/view/plugin-reviews/bbpress-notify-nospam#postform\" target=\"_new"
+"\">help share the trust and rate it!</a>"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid ""
+"<a href=\"http://usestrict.net\" target=\"_new\">Vinny Alves (UseStrict "
+"Consulting)</a>"
+msgstr ""
