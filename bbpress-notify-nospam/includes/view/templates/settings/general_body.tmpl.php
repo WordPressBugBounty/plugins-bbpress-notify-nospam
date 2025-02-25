@@ -58,10 +58,22 @@
 			<th scope="row"><?php _e( 'Background Notifications', 'bbpress-notify-nospam' ) ; ?></th>
 			<td>
 				<label>
-					<input type="checkbox" name="<?php echo $this->settings_name; ?>[background_notifications]" value="1"
+					<input type="checkbox" id="background_notifications" name="<?php echo $this->settings_name; ?>[background_notifications]" value="1"
 					<?php checked( $bg_notifications ); ?> >
 					       <?php _e( 'Send emails in the background the next time the site is visited.', 'bbpress-notify-nospam' ) ; ?>
 				</label>
+				<?php if ( class_exists('ActionScheduler') ) : ?>
+					<br>
+					<label>
+					<input type="checkbox" id="use_action_scheduler" name="<?php echo $this->settings_name; ?>[use_action_scheduler]" value="1"
+					<?php checked( $stash->settings->use_action_scheduler ); ?> >
+					       <?php _e( 'Use the Action Scheduler to manage background notifications.', 'bbpress-notify-nospam' ) ; ?>
+					</label>
+				<?php else : ?>
+					<br><br>
+					<span class="description"><?php _e( '* For improved background notifications, you may want to install the <a href="https://wordpress.org/plugins/action-scheduler/">Action Scheduler plugin</a>. Once installed and activated, come back to this screen to enable its use.', 'bbpress-notify-nospam' ) ; ?></span>
+				<?php endif; ?>
+				
 			</td>
 		</tr>
 	
@@ -86,7 +98,7 @@
 			</td>
 		</tr>
 		
-		<input type="hidden" name="bbpnns_nullable_fields" value="background_notifications,encode_subject,show_credits" />
+		<input type="hidden" name="bbpnns_nullable_fields" value="use_action_scheduler,background_notifications,encode_subject,show_credits" />
 		
 		<?php do_action( 'bbpnns_settings_global_box_after_last_row' ); ?>
 		

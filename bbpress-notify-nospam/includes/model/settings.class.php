@@ -32,6 +32,11 @@ class bbPress_Notify_noSpam_Model_Settings {
     private $newreply_background = false;
     private $background_notifications = false;
     
+    /**
+     * Whether to use the Action Scheduler for background notifications
+     */
+    private $use_action_scheduler = false;
+    
     
     /**
      * This controls the default status of the 'Send Notifications' checkbox in the New Post Admin UI
@@ -188,6 +193,7 @@ class bbPress_Notify_noSpam_Model_Settings {
             'newtopic_background'                 => __( 'Notify New Topics in Background', 'bbpress-notify-nospam' ) ,
             'newreply_background'                 => __( 'Notify New Replies in Background', 'bbpress-notify-nospam' ) ,
             'background_notifications'            => __( 'Background Notifications', 'bbpress-notify-nospam' ) ,
+            'use_action_scheduler'                => __( 'Use Action Scheduler', 'bbpress-notify-nospam' ) ,
             'default_topic_notification_checkbox' => __( 'Default Topic Notification Checkbox', 'bbpress-notify-nospam' ) ,
             'default_reply_notification_checkbox' => __( 'Default Reply Notification Checkbox', 'bbpress-notify-nospam' ) ,
             'override_bbp_forum_subscriptions'    => __( 'Override bbPress Forum Subscriptions', 'bbpress-notify-nospam' ) ,
@@ -301,6 +307,7 @@ class bbPress_Notify_noSpam_Model_Settings {
             case 'newtopic_background':
             case 'newreply_background':
             case 'background_notifications':
+            case 'use_action_scheduler':
             case 'default_topic_notification_checkbox':
             case 'default_reply_notification_checkbox':
             case 'override_bbp_forum_subscriptions':

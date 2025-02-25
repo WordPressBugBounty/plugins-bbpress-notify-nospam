@@ -11,8 +11,7 @@ class bbPress_Notify_noSpam_Controller_Common_Core extends bbPress_Notify_noSpam
     public $settings;
     private $doing_cron = false;
     private $forum_hierarchy = [];
-    private $supports_node;
-    private $site_url;
+    private $action_scheduler_enabled = false;
 
     /**
      * Used to store the recipients who have already gotten or will get our notifications (in case of bg notifications),
@@ -32,6 +31,8 @@ class bbPress_Notify_noSpam_Controller_Common_Core extends bbPress_Notify_noSpam
         $this->doing_cron = (defined('DOING_CRON') && DOING_CRON);
 
         $this->settings = $this->load_lib('dal/settings_dao')->load();
+
+        $this->action_scheduler_enabled = class_exists('ActionScheduler') && $this->settings->use_action_scheduler;
 
         // This cannot be in is_admin() because it needs to handle future publishing, which doesn't have is_admin() status
         add_action( 'save_post', array( $this, 'notify_on_save' ), 10, 2 );
@@ -54,7 +55,7 @@ class bbPress_Notify_noSpam_Controller_Common_Core extends bbPress_Notify_noSpam
             // Keep core bbpress from notifying our recipients
             add_action( 'bbp_new_topic', array( $this, 'bg_filter_topic_recipients' ), 1000, 4 );
 
-            // Called by wp-cron
+            // Called by wp-cron or Action Scheduler
             add_action( 'bbpress_notify_bg_topic', array( $this, 'notify_new_topic' ), 10, 4 );
 
             ##################
@@ -70,7 +71,7 @@ class bbPress_Notify_noSpam_Controller_Common_Core extends bbPress_Notify_noSpam
             // Keep core bbpress from notifying our recipients
             add_action( 'bbp_new_reply', array( $this, 'bg_filter_reply_recipients' ), 1000, 7 );
 
-            // Called by wp-cron
+            // Called by wp-cron or Action Scheduler
             add_action( 'bbpress_notify_bg_reply', array( $this, 'notify_new_reply' ), 10, 7 );
         }
         else
@@ -123,14 +124,6 @@ class bbPress_Notify_noSpam_Controller_Common_Core extends bbPress_Notify_noSpam
         add_filter( 'bbpnns_available_reply_tags', array( $this, 'get_available_reply_tags' ), 10, 2 );
 
         add_filter( 'bbpnns_is_in_effect', array( $this, 'bbpnns_is_in_effect' ), 10, 2 );
-
-        /**
-         * Whether DOMDocument supports node as parameter.
-         */
-        $this->supports_node = version_compare( PHP_VERSION, '5.3.6', '>=' );
-
-        // Get it just once
-        $this->site_url = get_option( 'siteurl' );
 
         // Whether to auto-subscribe new users to forums
         if ( $this->settings->forums_auto_subscribe_new_users )
@@ -213,6 +206,11 @@ class bbPress_Notify_noSpam_Controller_Common_Core extends bbPress_Notify_noSpam
      */
     public function bg_filter_topic_recipients($topic_id = 0, $forum_id = 0, $anonymous_data = false, $topic_author = 0)
     {
+        if ( $this->is_dry_run() )
+        {
+            $this->trace('Starting bg_filter_topic_recipients');
+        }
+
         // Load topic recipients
         if ( ! $topic_author )
         {
@@ -252,7 +250,33 @@ class bbPress_Notify_noSpam_Controller_Common_Core extends bbPress_Notify_noSpam
                 $reply_to     = bbp_get_reply_to( $reply_id );
             }
 
-            wp_schedule_single_event( time() + 10, 'bbpress_notify_bg_reply', array( $reply_id, $topic_id, $forum_id, $anonymous_data, $reply_author, $bool, $reply_to ) );
+            if ( $this->action_scheduler_enabled )
+            {
+                // Action already added in __construct
+                as_enqueue_async_action( 
+                    'bbpress_notify_bg_reply', 
+                    array( 
+                        $reply_id, 
+                        $topic_id, 
+                        $forum_id, 
+                        $anonymous_data, 
+                        $reply_author, 
+                        $bool, 
+                        $reply_to
+                    ),
+                    $group='bbpnns',
+                    $unique=true,
+                );
+            }
+            else 
+            {
+                wp_schedule_single_event( time() + 10, 'bbpress_notify_bg_reply', array( $reply_id, $topic_id, $forum_id, $anonymous_data, $reply_author, $bool, $reply_to ) );
+            }           
+        }
+        else 
+        {
+            $using = $this->action_scheduler_enabled ? 'Action Scheduler' : 'wp-cron';
+            $this->trace( "Would have used $using to schedule reply notification for reply_id: " . $reply_id );
         }
     }
 
@@ -275,7 +299,30 @@ class bbPress_Notify_noSpam_Controller_Common_Core extends bbPress_Notify_noSpam
                 $topic_author = bbp_get_topic_author_id( $topic_id );
             }
 
-            wp_schedule_single_event( time() + 10, 'bbpress_notify_bg_topic', array( $topic_id, $forum_id, $anonymous_data, $topic_author ) );
+            if ( $this->action_scheduler_enabled )
+            {
+                // Action already added in __construct
+                as_enqueue_async_action( 
+                    'bbpress_notify_bg_topic', 
+                    array( 
+                        $topic_id, 
+                        $forum_id, 
+                        $anonymous_data, 
+                        $topic_author 
+                    ),
+                    $group='bbpnns',
+                    $unique=true,
+                );
+            }
+            else 
+            {
+                wp_schedule_single_event( time() + 10, 'bbpress_notify_bg_topic', array( $topic_id, $forum_id, $anonymous_data, $topic_author ) );
+            }
+        }
+        else 
+        {
+            $using = $this->action_scheduler_enabled ? 'Action Scheduler' : 'wp-cron';
+            $this->trace( "Would have used $using to schedule topic notification for topic_id: " . $topic_id );
         }
     }
 

@@ -35,4 +35,19 @@ jQuery(document).ready(function($){
 		var text = $(this).data('insert-tag');
 		return insert_tags( text, 'tinymce' );
 	});
+
+	// Tie action scheduler click with background notifications
+	$('#use_action_scheduler').on('click', function(){
+		var checked = $(this).is(':checked');
+		if ( checked ) {
+			$('#background_notifications').prop('checked', true);
+		}
+	});
+
+	$('#background_notifications').on('click', function(){
+		var checked = $(this).is(':checked');
+		if ( ! checked ) {
+			$('#use_action_scheduler').prop('checked', false);
+		}
+	});
 });

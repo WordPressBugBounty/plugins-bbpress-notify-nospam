@@ -5,11 +5,11 @@ Author URI: https://www.usestrict.net/
 Plugin URI: https://usestrict.net/2013/02/bbpress-notify-nospam/
 Tags: bbpress, email notification, no spam
 Requires at least: 3.1
-Tested up to: 6.7.1
+Tested up to: 6.7.2
 Text Domain: bbpress-notify-nospam
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Stable Tag: 2.18.5
+Stable Tag: 2.19
 Requires PHP: 5.6
 bbPress Notifications on steroids.
 
@@ -98,8 +98,11 @@ Take your notifications to the next level with one or more of these add-ons.
 
 
 == Changelog ==
+= 2.19 =
+* Add Action Scheduler support.
+
 = 2.18.5 =
-* Fix load_plugin_textdomain to work with 6.7.1
+* Fix load_plugin_textdomain to work with 6.7.1.
 
 = 2.18.4 =
 * Address vulnerable code.
