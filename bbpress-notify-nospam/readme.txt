@@ -9,7 +9,7 @@ Tested up to: 6.7.2
 Text Domain: bbpress-notify-nospam
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Stable Tag: 2.19
+Stable Tag: 2.19.1
 Requires PHP: 5.6
 bbPress Notifications on steroids.
 
@@ -98,6 +98,9 @@ Take your notifications to the next level with one or more of these add-ons.
 
 
 == Changelog ==
+= 2.19.1 =
+* Fix dynamic property creation deprecation messages.
+
 = 2.19 =
 * Add Action Scheduler support.
 

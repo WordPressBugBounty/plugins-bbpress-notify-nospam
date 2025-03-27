@@ -9,6 +9,8 @@ class bbPress_Notify_noSpam_Controller_Common_Core extends bbPress_Notify_noSpam
     public $bbpress_topic_post_type;
     public $bbpress_reply_post_type;
     public $settings;
+    private $message_type;
+    private $charset;
     private $doing_cron = false;
     private $forum_hierarchy = [];
     private $action_scheduler_enabled = false;
