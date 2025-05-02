@@ -563,12 +563,13 @@ class bbPress_Notify_noSpam_Controller_Common_Core extends bbPress_Notify_noSpam
         {
             remove_filter( 'bbp_get_reply_content', array( $wp_embed, 'autoembed'), 2 );
 
-            $content = bbp_get_reply_content( $post_id );
-            $title   = wp_specialchars_decode( strip_tags( bbp_get_reply_title( $post_id ) ), ENT_QUOTES );
-            $excerpt = wp_specialchars_decode( strip_tags( bbp_get_reply_excerpt( $post_id, $excerpt_size ) ), ENT_QUOTES );
-            $author  = bbp_get_reply_author_display_name( $post_id );
-            $url     = apply_filters( 'bbpnns_reply_url', bbp_get_reply_permalink( $post_id ), $post_id, $title, $forum_id );
-            $forum 	 = wp_specialchars_decode( strip_tags( get_the_title( $forum_id ) ), ENT_QUOTES );
+            $content   = bbp_get_reply_content( $post_id );
+            $title     = wp_specialchars_decode( strip_tags( bbp_get_reply_title( $post_id ) ), ENT_QUOTES );
+            $excerpt   = wp_specialchars_decode( strip_tags( bbp_get_reply_excerpt( $post_id, $excerpt_size ) ), ENT_QUOTES );
+            $author    = bbp_get_reply_author_display_name( $post_id );
+            $url       = apply_filters( 'bbpnns_reply_url', bbp_get_reply_permalink( $post_id ), $post_id, $title, $forum_id );
+            $forum 	   = wp_specialchars_decode( strip_tags( get_the_title( $forum_id ) ), ENT_QUOTES );
+            $forum_url = bbp_get_forum_permalink( $forum_id );
 
             // Topic-specific stuff in replies
             $topic_id     = bbp_get_reply_topic_id( $post_id );
@@ -624,6 +625,7 @@ class bbPress_Notify_noSpam_Controller_Common_Core extends bbPress_Notify_noSpam
         $email_subject = str_replace( "[$type-url]", $url, $email_subject );
         $email_subject = str_replace( "[$type-replyurl]", $topic_reply, $email_subject );
         $email_subject = str_replace( "[$type-forum]", $forum, $email_subject );
+        $email_subject = str_replace( "[$type-forum-url]", $forum_url, $email_subject );
         $email_subject = str_replace( "[$type-author-email]", $author_email, $email_subject );
         $email_subject = preg_replace_callback( '/\[date([^\]]*)\]/',
             function($matches){ return do_shortcode('[bbpnns_date ' . $matches[1] . ']');  }, $email_subject );
@@ -637,6 +639,7 @@ class bbPress_Notify_noSpam_Controller_Common_Core extends bbPress_Notify_noSpam
         $email_body = str_replace( "[$type-url]", $url, $email_body );
         $email_body = str_replace( "[$type-replyurl]", $topic_reply, $email_body );
         $email_body = str_replace( "[$type-forum]", $forum, $email_body );
+        $email_body = str_replace( "[$type-forum-url]", $forum_url, $email_body );
         $email_body = str_replace( "[$type-author-email]", $author_email, $email_body );
         $email_body = preg_replace_callback( '/\[date([^\]]*)\]/',
             function($matches){ return do_shortcode('[bbpnns_date ' . $matches[1] . ']');  }, $email_body );
@@ -912,7 +915,7 @@ class bbPress_Notify_noSpam_Controller_Common_Core extends bbPress_Notify_noSpam
     {
         $tags = '[blogname], [recipient-first_name], [recipient-last_name], [recipient-display_name], [recipient-user_nicename], ' .
             '[reply-title], [reply-content], [reply-excerpt], [reply-url], [reply-replyurl], [reply-author], [reply-author-email], ' .
-            '[reply-forum], [topic-url], [topic-title], [topic-author], [topic-author-email], ' .
+            '[reply-forum], [reply-forum-url], [topic-url], [topic-title], [topic-author], [topic-author-email], ' .
             '[author-first_name], [author-last_name], [author-display_name], [author-user_nicename], ' .
             '[topic-content], [topic-excerpt], [date]';
 
@@ -933,7 +936,7 @@ class bbPress_Notify_noSpam_Controller_Common_Core extends bbPress_Notify_noSpam
         $tags = '[blogname], [recipient-first_name], [recipient-last_name], [recipient-display_name], ' .
             '[recipient-user_nicename], [topic-title], [topic-content], [topic-excerpt], [topic-url], ' .
             '[author-first_name], [author-last_name], [author-display_name], [author-user_nicename], ' .
-            '[topic-replyurl], [topic-author], [topic-author-email], [topic-forum], [date], [topmost-forum]';
+            '[topic-replyurl], [topic-author], [topic-author-email], [topic-forum], [topic-forum-url], [date], [topmost-forum]';
 
         $extra_tags = apply_filters( 'bbpnns_extra_topic_tags',  null, $for );
 
