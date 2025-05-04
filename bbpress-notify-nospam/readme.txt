@@ -9,7 +9,7 @@ Tested up to: 6.8.1
 Text Domain: bbpress-notify-nospam
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Stable Tag: 2.19.2
+Stable Tag: 2.19.3
 Requires PHP: 5.6
 bbPress Notifications on steroids.
 
@@ -98,6 +98,9 @@ Take your notifications to the next level with one or more of these add-ons.
 
 
 == Changelog ==
+= 2.19.3 =
+* Fixed forum-url tag only working for replies, not topics.
+
 = 2.19.2 =
 * Add support for forum-url tags.
 

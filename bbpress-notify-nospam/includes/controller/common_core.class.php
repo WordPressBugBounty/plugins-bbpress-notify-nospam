@@ -543,6 +543,7 @@ class bbPress_Notify_noSpam_Controller_Common_Core extends bbPress_Notify_noSpam
         $excerpt_size          = apply_filters( 'bpnns_excerpt_size', 100 );
         $topmost_forum_body    = $this->get_topmost_forum_link( $post_id, $is_subject=false );
         $topmost_forum_subject = $this->get_topmost_forum_link( $post_id, $is_subject=true );
+        $forum_url             = bbp_get_forum_permalink( $forum_id );
 
         // Disable auto-embed for buddyboss/buddypress
         add_filter( 'bbp_use_autoembed', '__return_false' );
@@ -569,7 +570,6 @@ class bbPress_Notify_noSpam_Controller_Common_Core extends bbPress_Notify_noSpam
             $author    = bbp_get_reply_author_display_name( $post_id );
             $url       = apply_filters( 'bbpnns_reply_url', bbp_get_reply_permalink( $post_id ), $post_id, $title, $forum_id );
             $forum 	   = wp_specialchars_decode( strip_tags( get_the_title( $forum_id ) ), ENT_QUOTES );
-            $forum_url = bbp_get_forum_permalink( $forum_id );
 
             // Topic-specific stuff in replies
             $topic_id     = bbp_get_reply_topic_id( $post_id );
