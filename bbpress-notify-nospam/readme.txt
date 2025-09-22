@@ -3,101 +3,92 @@ Contributors: useStrict
 Donate link: https://www.paypal.me/usestrict
 Author URI: https://www.usestrict.net/
 Plugin URI: https://usestrict.net/2013/02/bbpress-notify-nospam/
-Tags: bbpress, email notification, no spam
+Tags: bbpress, buddyboss, email notification, forum notifications, no spam
 Requires at least: 3.1
-Tested up to: 6.8.1
+Tested up to: 6.8.2
 Text Domain: bbpress-notify-nospam
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Stable Tag: 2.19.3
+Stable Tag: 2.19.4
 Requires PHP: 5.6
-bbPress Notifications on steroids.
+Powerful, customizable email notifications for bbPress and BuddyBoss forums — without the spam.
 
 
 == Description ==
-The most powerful new topic and reply notification system for bbPress and also BuddyBoss, giving your forum users a personalized experience.
+**bbPress Notify (No-Spam)** is the ultimate notification plugin for **bbPress** and **BuddyBoss** forums.  
+It replaces the limited default subscription system with a flexible, no-spam solution that gives your users **personalized, reliable email updates** about new topics and replies.  
 
-<strong>New!</strong> We've launched a Facebook Group to discuss all things bbpnns: <a href="https://www.facebook.com/groups/bbpressnotifynospam" target="_new">Better Forum Notifications with bbPress Notify (No-Spam)</a>.
+Stop flooding inboxes. With bbpnns you control exactly who gets notified, when, and how. Perfect for community managers, membership sites, and anyone who wants professional-grade forum notifications.  
 
-= Features include =
+<strong>New!</strong> Join our Facebook Group to discuss all things bbpnns: <a href="https://www.facebook.com/groups/bbpressnotifynospam" target="_blank">Better Forum Notifications with bbPress Notify (No-Spam)</a>.  
 
- * Send notifications in HTML, Plain text, or Multipart format, with full image support.
- * Replace original subscription messages with personalized ones of your own;
- * Set Notification recipient roles for new topics and/or replies;
- * Send Background Notifications (to avoid delays in loading pages for large user databases);
- * A nifty Dry Run tool to help you understand who would be receiving notifications given the selected settings;
- * Extensible through dozens of actions and filters;
+= Key Features =
 
-<a href="https://usestrict.net/bbpress-notify-no-spam-documentation/" target="_blank">Click here for the full documentation.</a>
+- 📧 **Send professional emails** — Choose HTML, plain text, or multipart with image support.  
+- 🎯 **Target the right audience** — Notify by user roles (admins, moderators, members, etc.).  
+- 🚀 **Faster performance** — Background notifications prevent post-submission timeouts.  
+- 🧪 **Preview before sending** — Dry-run mode shows exactly who will receive notifications.  
+- 🔌 **Developer-friendly** — Dozens of filters and actions for easy customization.  
+- ✅ **BuddyBoss compatible** — Works out of the box with BuddyBoss forums.  
 
-<blockquote>
-= Premium Add-Ons =
+<a href="https://usestrict.net/bbpress-notify-no-spam-documentation/" target="_blank">📖 View the full documentation</a>  
 
-Take your notifications to the next level with one or more of these add-ons.
 
-<ul>
-    <li><a href="https://usestrict.net/product/bbpress-notify-no-spam-reply-email/?utm_source=bbpnns-readme&utm_medium=web&utm_campaign=bbpnns-wp.org" target="_blank">Reply by Email Add-on</a>: Users can create new topics or replies directly from their mailbox. No need to click links or open the forums in a browser. Heck, they can even dictate their topics/replies if they want!</li>
-	<li><a href="https://usestrict.net/product/bbpress-notify-no-spam-bulk-mailer/?utm_source=bbpnns-readme&utm_medium=web&utm_campaign=bbpnns-wp.org" target="_blank">Bulk Mailer Add-on</a>: Having trouble with mailout timouts because you have too many users? This is the solution. Integrate bbpnns with Mailgun or SendGrid and send messages in batches of 1000 instead of one-by-one.</li>
-    <li><a href="https://usestrict.net/product/bbpress-notify-no-spam-digests/?utm_source=bbpnns-readme&utm_medium=web&utm_campaign=bbpnns-wp.org" target="_blank">Digest Add-on</a>: Users can choose to receive daily, weekly, or monthly digests.</li>
-    <li><a href="https://usestrict.net/product/bbpress-notify-no-spam-opt-out-add-on/?utm_source=bbpnns-readme&utm_medium=web&utm_campaign=bbpnns-wp.org" target="_blank">Opt-out Add-on</a>: Users can choose not to receive any notifications, or simply unsubscribe from the thread with a single click. A must-have for CAN-SPAM and CASL laws!</li>
-    <li><a href="https://usestrict.net/product/bbpress-moderation-plugin-add-on/?utm_source=bbpnns-readme&utm_medium=web&utm_campaign=bbpnns-wp.org" target="_blank">bbPress Moderation Integration</a>: Make bbpnns work with <a href="https://wordpress.org/plugins/bbpressmoderation/" target="_blank">bbPress Moderation</a>.</li>
-    <li><a href="https://usestrict.net/product/bbpress-notify-no-spam-private-groups-bridge/?utm_source=bbpnns-readme&utm_medium=web&utm_campaign=bbpnns-wp.org" target="_blank">bbPress Private Groups Integration</a>: Make bbpnns respect <a href="https://wordpress.org/plugins/bbp-private-groups/" target="_blank">bbPress Private Groups</a> rules.</li>
-    <li><a href="https://usestrict.net/product/bbpress-notify-no-spam-buddypress-bridge/?utm_source=bbpnns-readme&utm_medium=web&utm_campaign=bbpnns-wp.org" target="_blank">BuddyPress Integration</a>: Notify BuddyPress Group members of new Group Forum topics and replies. It also shows individual Opt Out and Digest settings in each user's BuddyPress profile screen. Compatible with BuddyBoss!</li>
-    <li><a href="https://usestrict.net/product/bbpress-notify-no-spam-memberpress-bridge/?utm_source=bbpnns-readme&utm_medium=web&utm_campaign=bbpnns-wp.org" target="_blank">MemberPress Integration</a>: Make sure your members have access to Opt Out and Digest settings in their MemberPress profile screens, and only get notified of topics/replies they have access to.</li>
-    <li><a href="https://usestrict.net/product/bbpress-notify-no-spam-ultimate-member-bridge/?utm_source=bbpnns-readme&utm_medium=web&utm_campaign=bbpnns-wp.org" target="_blank">Ultimate Member Integration</a>: Make sure your members have access to Opt Out and Digest settings in their Ultimate Member profile screens.</li>
-    <li><a href="https://usestrict.net/product/bbpress-notify-no-spam-accessally-bridge/?utm_source=bbpnns-readme&utm_medium=web&utm_campaign=bbpnns-wp.org" target="_blank">AccessAlly Integration</a>: A must for those using AccessAlly, so their users won't receive notifications for forums they don't have access to.</li>
-    <li><a href="https://usestrict.net/product/bbpress-notify-no-spam-learndash-bridge/?utm_source=bbpnns-readme&utm_medium=web&utm_campaign=bbpnns-wp.org" target="_blank">LearnDash Integration</a>: Play nicely with <a href="https://www.learndash.com">LearnDash</a> user restrictions to forums.</li>
-</ul>
+== Premium Add-Ons ==
 
-</blockquote>
+Take bbpnns to the next level with powerful extensions:  
+
+- **Reply by Email** – Post new topics or replies directly from your inbox.  
+- **Bulk Mailer** – Send thousands of notifications via Mailgun or SendGrid without server timeouts.  
+- **Digests** – Give users daily, weekly, or monthly summaries to reduce inbox noise.  
+- **Opt-Out** – One-click unsubscribe options for CAN-SPAM and CASL compliance.  
+- **Membership & LMS Bridges** – Integrate with BuddyPress, BuddyBoss, MemberPress, Ultimate Member, LearnDash, AccessAlly, Private Groups, and more.  
+
+👉 Browse all premium add-ons here: <a href="https://usestrict.net/product-category/premium-wordpress-plugins/?utm_source=bbpnns-readme&utm_medium=wporg&utm_campaign=bbpnns" target="_blank">bbpnns Premium Add-Ons</a>  
 
 
 == Installation ==
 
-1. Upload the entire plugin folder via FTP to `/wp-content/plugins/`.
-2. Activate the plugin through the 'Plugins' menu in WordPress.
-3. Go to the <strong>bbPress Notify (No-Spam) in the main admin menu -> Settings</strong> to customize the settings.
+1. Upload the entire plugin folder to `/wp-content/plugins/`.  
+2. Activate the plugin through the “Plugins” menu in WordPress.  
+3. Go to **bbPress Notify (No-Spam) > Settings** in the main admin menu to configure.  
+
 
 == Frequently Asked Questions ==
 
-= I'm using BuddyBoss instead of bbPress. Does this plugin work for me? =
-* Yes! BuddyBoss forked bbPress and kept all of the inner workings. This means that anything that works with bbPress will also work with BuddyBoss.  
+= Does it work with BuddyBoss? =  
+Yes! BuddyBoss forked bbPress and kept all the inner workings. Anything that works with bbPress works with BuddyBoss.  
 
-= Why am I not receiving notifications of a topic/reply that I created? =
-* Make sure the setting to notify authors of their own posts is checked in both the Topics and Replies screen.
+= Why am I not receiving notifications of my own topics/replies? =  
+Check the setting “Notify authors of their own posts” under both Topics and Replies.  
 
-= Where are the settings? =
-* As of version 2.0, the settings are no longer in the Forums screen but have their own location in the Admin menu area.
+= Where are the settings located? =  
+As of version 2.0, settings are in their own **bbPress Notify (No-Spam)** menu item in the Admin dashboard.  
 
-= People are getting timeouts when posting a new Topic or Reply. Why? =
-* When a new Topic or Reply is created, bbpnns is triggered to send notifications regarding that new post. If there are too many recipients, it may take too long for bbpnns to iterate through the recipient list and the web server will throw a timeout message; the person posting it will think their message didn't get saved. To get around this problem, turn on the option to send messages in the background. That will create a scheduled action for the next time the wp-cron runs, and bbpnns will try to override any time limits while running.
+= People are getting timeouts when posting. Why? =  
+If many users are notified at once, the server may time out. Enable **Background Notifications** to offload the sending to wp-cron. For very large communities, consider the [Bulk Mailer add-on](https://usestrict.net/product/bbpress-notify-no-spam-bulk-mailer/?utm_source=bbpnns-readme&utm_medium=wporg&utm_campaign=bbpnns).  
 
-= Why are some of my users not getting notified? =
-* If you have *not* turned on Background Notifications, see the FAQ item above. If you have turned it on and some users are still not getting notified, it could be that your host is not letting bbpnns finish doing its thing, even though the timeout settings have been overridden. Some hosts will have scripts monitoring long running processes and have them killed, regardless of the PHP timeout values. A solution for this is to have bbpnns work faster, and for that we've released the [Bulk Mailer add-on](https://usestrict.net/product/bbpress-notify-no-spam-bulk-mailer/?utm_source=bbpnns-readme&utm_medium=web&utm_campaign=bbpnns-wp.org) which connects with an existing Mailgun or SendGrid account and sends notifications to up to 1000 recipients in the time it would otherwise take to send to a single one.
+= Can users opt out of notifications? =  
+Yes — with the [Opt-Out add-on](https://usestrict.net/product/bbpress-notify-no-spam-opt-out-add-on/?utm_source=bbpnns-readme&utm_medium=wporg&utm_campaign=bbpnns), users can unsubscribe with one click.  
 
-= Can a user turn off notifications? =
-* Originally, this plugin was developed to alert Administrators of new topics and replies. After a few iterations, users requested the ability to send messages to other roles, which could then be characterized as spam. To allow your users to opt-out from receiving notifications, please consider purchasing the [Opt-out Add-on](http://usestrict.net/product/bbpress-notify-no-spam-opt-out-add-on/?utm_source=bbpnns-readme&utm_medium=web&utm_campaign=bbpnns-wp.org) or disable per-role notifications in favor of Overriding Core Subscriptions.
+= Does it integrate with membership or LMS plugins? =  
+Yes — we support popular tools like BuddyPress, BuddyBoss, MemberPress, LearnDash, AccessAlly, Ultimate Member, and Private Groups. See the Premium Add-Ons section for details.  
 
-= Does this plugin integrate with BuddyPress? =
-* Out of the box, no. However, you can get BuddyPress Group notification functionality using our premium [bbpnns/BuddyPress Bridge plugin](http://usestrict.net/product/bbpress-notify-no-spam-buddypress-bridge/?utm_source=bbpnns-readme&utm_medium=web&utm_campaign=bbpnns-wp.org).
+= Can I customize the notifications? =  
+Absolutely. Developers have access to dozens of filters and actions. Non-coders can use settings screens to adjust templates and recipients.  
 
-= Does this plugin integrate with X, Y, Z Membership/Privacy plugin? =
-* We can't add support for all sorts of third party plugins inside the core bbpnns plugin. It would become way too bloated. However, we do support some of the more popular membership and privacy plugins such as Private Groups, MemberPress, AccessAlly and Ultimate Member. See the Premium Addons section above for the links to each one. If you're using a different plugin and need support, reach out and let us know.
- We'll look into adding it.
-
-= Can this plugin be customized? =
-* If you have some WordPress coding experience, customizing should be really easy as we offer dozens of filters and actions. However, if you need help, reach out and let us know your specs for an estimate.
-
-
+---
 
 == Screenshots ==
-1. The settings page - General tab
-2. The settings page - Topics tab
-3. The settings page - Replies tab
-4. The settings page - Support tab
-
+1. General settings tab  
+2. Topics settings tab  
+3. Replies settings tab  
+4. Support tab  
 
 == Changelog ==
+= 2.19.4 =
+* Fix deprecation notice.
+
 = 2.19.3 =
 * Fixed forum-url tag only working for replies, not topics.
 

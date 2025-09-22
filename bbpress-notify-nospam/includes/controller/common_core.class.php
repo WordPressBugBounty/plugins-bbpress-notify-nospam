@@ -14,6 +14,7 @@ class bbPress_Notify_noSpam_Controller_Common_Core extends bbPress_Notify_noSpam
     private $doing_cron = false;
     private $forum_hierarchy = [];
     private $action_scheduler_enabled = false;
+    private $users_in_roles = [];
 
     /**
      * Used to store the recipients who have already gotten or will get our notifications (in case of bg notifications),
