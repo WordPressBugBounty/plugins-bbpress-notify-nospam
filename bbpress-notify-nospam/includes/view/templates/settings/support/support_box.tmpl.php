@@ -1,8 +1,23 @@
-<p><?php _e('The information below is important to help us troubleshoot any issues you may be having with bbpnns. 
-Due to the possibly sensitive nature of the information provided, wait for instructions before pasting it
-when contacting support in the public wordpress.org forums.', 'bbpress-notify-nospam' ) ;?></p>
+<?php
+/**
+ * Support information box template.
+ *
+ * Location: includes/view/templates/settings/support/support_box.tmpl.php
+ *
+ * @package bbPress_Notify_NoSpam
+ */
 
-<p><?php _e('Click the \'Select for Support\' button below, then Ctrl+C (⌘+C on Mac).', 'bbpress-notify-nospam' ) ;?></p>
+?>
+<p>
+<?php
+esc_html_e(
+	'The information below is important to help us troubleshoot any issues you may be having with bbpnns. Due to the possibly sensitive nature of the information provided, wait for instructions before pasting it when contacting support in the public wordpress.org forums.',
+	'bbpress-notify-nospam'
+);
+?>
+</p>
+
+<p><?php esc_html_e( 'Click the "Select for Support" button below, then Ctrl+C (⌘+C on Mac).', 'bbpress-notify-nospam' ); ?></p>
 
 <style>
 	#bbpnns-support-data {
@@ -17,12 +32,12 @@ when contacting support in the public wordpress.org forums.', 'bbpress-notify-no
 </style>
 <div id="bbpnns-support-data">
 
-<pre><?php var_dump($stash->support_vars) ?></pre>
+<pre><?php echo esc_html( wp_json_encode( $stash->support_vars, JSON_PRETTY_PRINT ) ); ?></pre>
 
 </div>
 <p>
- <a id="bbpnns-select-for-support" class="button" href="#"><?php _e('Select for Support')?></a> 
- <span class="bbpnns-after-select"><?php _e('Now Ctrl+C (⌘+C on Mac)', 'bbpress-notify-nospam' ) ; ?></span>
+<a id="bbpnns-select-for-support" class="button" href="#"><?php esc_html_e( 'Select for Support', 'bbpress-notify-nospam' ); ?></a>
+<span class="bbpnns-after-select"><?php esc_html_e( 'Now Ctrl+C (⌘+C on Mac)', 'bbpress-notify-nospam' ); ?></span>
 </p>
 
 <script>
@@ -30,32 +45,33 @@ jQuery(document).ready(function($){
 
 	var selectText = function( containerid ) {
 
-        var node = document.getElementById( containerid );
+		var node = document.getElementById( containerid );
 
-        if ( document.selection ) {
-            var range = document.body.createTextRange();
-            range.moveToElementText( node  );
-            range.select();
-        } else if ( window.getSelection ) {
-            var range = document.createRange();
-            range.selectNodeContents( node );
-            window.getSelection().removeAllRanges();
-            window.getSelection().addRange( range );
-        }
-    };
+		if ( document.selection ) {
+			var range = document.body.createTextRange();
+			range.moveToElementText( node  );
+			range.select();
+		} else if ( window.getSelection ) {
+			var range = document.createRange();
+			range.selectNodeContents( node );
+			window.getSelection().removeAllRanges();
+			window.getSelection().addRange( range );
+		}
+	};
 
-    $("#bbpnns-select-for-support").on('click', function(e){
-        e.preventDefault();
-        
+	$("#bbpnns-select-for-support").on('click', function(e){
+		e.preventDefault();
+		
 		selectText("bbpnns-support-data");
 		$(".bbpnns-after-select").show(500);
-    });
+	});
 
 	
 });
 
 </script>
-<?php 
-
-/* End if file support_body.tmpl.php */
-/* Location: includes/view/templates/settings/support/support_box.tmpl.php */
+<?php
+/*
+ * End of file support_box.tmpl.php
+ * Location: includes/view/templates/settings/support/support_box.tmpl.php
+ */

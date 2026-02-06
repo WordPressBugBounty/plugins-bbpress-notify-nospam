@@ -1,0 +1,11 @@
+Refactor: v3 loader/autoloader, remove legacy, add tests
+
+Summary:
+- Implement v3 autoloader and update `load_lib()` to rely on class autoloading.
+- Improve autoloader filename mapping (kebab-case, legacy support).
+- Move core controllers to `includes/controller/` and remove `includes/legacy/` and `t/` directories (archived in SVN).
+- Fix dry-run trace/log newline handling (`trace()` and `log_msg()`).
+- Add PHPUnit tests: php-lint smoke test, reflection-based methods test, dry-run/log newline tests, and loader singleton tests.
+
+Notes:
+- This initial commit prepares the plugin for Git; run the lint and tests locally before publishing.

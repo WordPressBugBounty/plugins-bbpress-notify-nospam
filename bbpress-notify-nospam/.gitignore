@@ -1,0 +1,26 @@
+/.idea/
+/.vscode/
+/.DS_Store
+/.env
+/vendor/
+/node_modules/
+/build/
+/dist/
+/coverage/
+/log.txt
+/phpunit.xml.cache
+/.phpunit.result.cache
+/.cache/
+/.sass-cache/
+*.log
+composer.lock
+/.vagrant/
+/.sass-cache/
+/.cache/
+
+# Ignore local WP test run dirs
+/tmp/
+/wordpress-tests-lib/
+
+# Ignore Subversion metadata created by WordPress.org
+.svn/

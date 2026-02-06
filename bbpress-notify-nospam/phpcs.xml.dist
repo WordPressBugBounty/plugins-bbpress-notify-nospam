@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<ruleset name="bbpress-notify-nospam">
+    <description>PHPCS rules for bbpress-notify-nospam plugin (project overrides).</description>
+
+    <!-- Use the WordPress standard as baseline -->
+    <rule ref="WordPress" />
+
+    <!-- Exclude deprecated call-time pass-by-reference sniff from the report -->
+    <exclude name="Generic.Functions.CallTimePassByReference" />
+
+    <!-- Suppress filename hyphenation rule for specific template files that must keep their names -->
+    <rule ref="WordPress.Files.FileName.NotHyphenatedLowercase">
+        <!-- Also allow legacy underscore-named templates in the templates tree -->
+        <exclude-pattern>*.tmpl.php</exclude-pattern>
+    </rule>
+
+</ruleset>

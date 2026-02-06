@@ -1,8 +1,8 @@
 @CHARSET "UTF-8";
 
 .nav-tab-wrapper {
-    margin-bottom:0;
-    border-bottom: 1px solid #ccc;
+	margin-bottom:0;
+	border-bottom: 1px solid #ccc;
 }
 
 
@@ -16,48 +16,48 @@ div.bbpnns_settings_sidebar {
 }
 
 div.bbpnns_settings_sidebar .bbpnns-warnings h2 span {
-    margin-right: 1em;
+	margin-right: 1em;
 }
 
 div[id^=toplevel_page_bbPress_Notify_noSpam] .form-table {
-    table-layout:fixed;
-    width: 100%;
+	table-layout:fixed;
+	width: 100%;
 }
 div[id^=toplevel_page_bbPress_Notify_noSpam] .form-table select2-container {
-    width: 100% !important;
+	width: 100% !important;
 }
 div[id^=toplevel_page_bbPress_Notify_noSpam] .form-table tr {
-    border-bottom: 1px groove #ccc;
+	border-bottom: 1px groove #ccc;
 }
 div[id^=toplevel_page_bbPress_Notify_noSpam] .form-table tr:last-of-type {
-    border-bottom: none;
+	border-bottom: none;
 }
 div[id^=toplevel_page_bbPress_Notify_noSpam] .handlediv {
-    display: none !important;
+	display: none !important;
 }
 div[id^=toplevel_page_bbPress_Notify_noSpam] .full-width {
-    width: 100%;    
+	width: 100%;
 }
 
 .toplevel_page_bbPress_Notify_noSpam input.full-width {
-    width: 50%;
+	width: 50%;
 }
 
 @media only screen and (max-width: 1025px) {
-    div.bbpnns_settings_sidebar {
-        width: 95% !important;
-        max-width: 95% !important;
-        margin-top: 10px;
-        display: block;
-    }
-    
-    div.bbpnns_settings_main {
-       width: 95% !important;
-       max-width: 95%;
-       float: none;
-    }
-    
-    div[id^=toplevel_page_bbPress_Notify_noSpam] #post-body-content {
-        float:none;
-    }
+	div.bbpnns_settings_sidebar {
+		width: 95% !important;
+		max-width: 95% !important;
+		margin-top: 10px;
+		display: block;
+	}
+
+	div.bbpnns_settings_main {
+		width: 95% !important;
+		max-width: 95%;
+		float: none;
+	}
+
+	div[id^=toplevel_page_bbPress_Notify_noSpam] #post-body-content {
+		float:none;
+	}
 }

@@ -1,0 +1,51 @@
+# Ensure release archives do not include tests, CI configs, log files, or composer metadata
+# Files and directories marked with "export-ignore" will be omitted from generated releases
+
+# Tests
+tests/ export-ignore
+tests/** export-ignore
+
+# PHPUnit and test config
+phpunit.xml export-ignore
+phpunit.xml.dist export-ignore
+phpunit.local.xml export-ignore
+phpunit.* export-ignore
+
+# Composer metadata (do not include composer.json/lock or related files)
+composer.json export-ignore
+composer.lock export-ignore
+composer.* export-ignore
+
+# Composer-installed PHPUnit binaries / polyfills
+vendor/phpunit/** export-ignore
+vendor/yoast/** export-ignore
+
+# CI configs
+.circleci/ export-ignore
+
+# Editor configs
+.vscode/ export-ignore
+
+# Log files
+log.txt export-ignore
+**/log.txt export-ignore
+
+# Bin scripts used only for development/testing
+bin/install-wp-tests.sh export-ignore
+bin/run-tests.sh export-ignore
+# Exclude legacy files and test helpers from exported release archives
+includes/legacy/ export-ignore
+t/ export-ignore
+
+# Exclude vendor dependencies from plugin releases
+vendor/ export-ignore
+
+# Exclude runtime logs
+log.txt export-ignore
+*.log export-ignore
+
+# Optionally exclude tests from packaged releases
+tests/ export-ignore
+
+# Exclude CircleCI config from release archives
+.circleci/ export-ignore

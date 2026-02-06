@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<ruleset name="bbPress Notify (No-Spam) Ruleset">
+	<description>Project-specific PHPCS ruleset — force WordPress standard and exclude vendor.</description>
+
+	<!-- Use the WordPress coding standard -->
+	<rule ref="WordPress" />
+
+	<!-- Exclude dependencies and tests directories -->
+	<exclude-pattern>vendor/*</exclude-pattern>
+	<exclude-pattern>t/*</exclude-pattern>
+
+</ruleset>
