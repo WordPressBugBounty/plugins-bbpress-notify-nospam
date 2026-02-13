@@ -159,7 +159,7 @@ class bbPress_Notify_noSpam_Controller_Common_Core extends bbPress_Notify_noSpam
 			add_action( 'bbp_approved_topic', array( $this, 'bg_notify_new_topic' ), 100, 1 );
 
 			// Keep core bbpress from notifying our recipients
-			add_action( 'bbp_new_topic', array( $this, 'bg_filter_topic_recipients' ), 1000, 4 );
+			// add_action( 'bbp_new_topic', array( $this, 'bg_filter_topic_recipients' ), 1000, 4 );
 
 			// Called by wp-cron or Action Scheduler
 			add_action( 'bbpress_notify_bg_topic', array( $this, 'notify_new_topic' ), 10, 4 );
@@ -175,7 +175,7 @@ class bbPress_Notify_noSpam_Controller_Common_Core extends bbPress_Notify_noSpam
 			add_action( 'bbp_approved_reply', array( $this, 'bg_notify_new_reply' ), 100, 1 );
 
 			// Keep core bbpress from notifying our recipients
-			add_action( 'bbp_new_reply', array( $this, 'bg_filter_reply_recipients' ), 1000, 7 );
+			// add_action( 'bbp_new_reply', array( $this, 'bg_filter_reply_recipients' ), 1000, 7 );
 
 			// Called by wp-cron or Action Scheduler
 			add_action( 'bbpress_notify_bg_reply', array( $this, 'notify_new_reply' ), 10, 7 );
@@ -203,7 +203,13 @@ class bbPress_Notify_noSpam_Controller_Common_Core extends bbPress_Notify_noSpam
 			add_action( 'bbp_approved_reply', array( $this, 'notify_new_reply' ), 10, 1 );
 		}
 
-		if ( $this->bbpnns_is_in_effect() ) {
+		/**
+		 * This is where we stop bbpress core from sending notifications to our recipients.
+		 * We return falsy values in the filters to prevent bbpress from sending emails, and we also remove the actions that trigger bbpress' notifications just in case.
+		 */
+		if ( $this->bbpnns_is_in_effect() ||
+			$this->settings->override_bbp_forum_subscriptions ||
+			$this->settings->override_bbp_topic_subscriptions ) {
 			// Stop core subscriptions in its tracks
 			add_filter( 'bbp_forum_subscription_user_ids', '__return_false', PHP_INT_MAX, 3 );
 			add_filter( 'bbp_forum_subscription_mail_message', '__return_false' );
@@ -272,20 +278,20 @@ class bbPress_Notify_noSpam_Controller_Common_Core extends bbPress_Notify_noSpam
 	 * @param bool         $bool           Internal boolean flag.
 	 * @param mixed        $reply_to       Reply-to identifier or email.
 	 */
-	public function bg_filter_reply_recipients( $reply_id = 0, $topic_id = 0, $forum_id = 0, $anonymous_data = false, $reply_author = 0, $bool = false, $reply_to = null ) {
-		// Load reply recipients
-		if ( ! $reply_author ) {
-			$reply_author = bbp_get_reply_author_id( $reply_id );
-		}
-		$recipients = $this->get_recipients( $forum_id, $type = 'reply', $topic_id, $reply_author );
-		$recipients = apply_filters( 'bbpress_reply_notify_recipients', $recipients, $reply_id, $topic_id, $forum_id );
-		$recipients = apply_filters( 'bbpnns_filter_recipients_before_send', $recipients );
+	// public function bg_filter_reply_recipients( $reply_id = 0, $topic_id = 0, $forum_id = 0, $anonymous_data = false, $reply_author = 0, $bool = false, $reply_to = null ) {
+	// Load reply recipients
+	// if ( ! $reply_author ) {
+	// $reply_author = bbp_get_reply_author_id( $reply_id );
+	// }
+	// $recipients = $this->get_recipients( $forum_id, $type = 'reply', $topic_id, $reply_author );
+	// $recipients = apply_filters( 'bbpress_reply_notify_recipients', $recipients, $reply_id, $topic_id, $forum_id );
+	// $recipients = apply_filters( 'bbpnns_filter_recipients_before_send', $recipients );
 
-		$this->queued_recipients = $recipients;
+	// $this->queued_recipients = $recipients;
 
-		// Add reply filter for core notifications
-		add_filter( 'bbp_topic_subscription_user_ids', array( $this, 'filter_queued_recipients' ), 10, 1 );
-	}
+	// Add reply filter for core notifications
+	// add_filter( 'bbp_topic_subscription_user_ids', array( $this, 'filter_queued_recipients' ), 10, 1 );
+	// }
 
 
 	/**
@@ -298,24 +304,24 @@ class bbPress_Notify_noSpam_Controller_Common_Core extends bbPress_Notify_noSpam
 	 * @param string|false $anonymous_data Anonymous topic data, if any.
 	 * @param int          $topic_author   Topic author user ID.
 	 */
-	public function bg_filter_topic_recipients( $topic_id = 0, $forum_id = 0, $anonymous_data = false, $topic_author = 0 ) {
-		if ( $this->is_dry_run() ) {
-			$this->trace( 'Starting bg_filter_topic_recipients' );
-		}
+	// public function bg_filter_topic_recipients( $topic_id = 0, $forum_id = 0, $anonymous_data = false, $topic_author = 0 ) {
+	// if ( $this->is_dry_run() ) {
+	// $this->trace( 'Starting bg_filter_topic_recipients' );
+	// }
 
-		// Load topic recipients
-		if ( ! $topic_author ) {
-			$topic_author = bbp_get_topic_author_id( $topic_id );
-		}
-		$recipients = $this->get_recipients( $forum_id, $type = 'topic', $topic_id, $topic_author );
-		$recipients = apply_filters( 'bbpress_topic_notify_recipients', $recipients, $topic_id, $forum_id );
-		$recipients = apply_filters( 'bbpnns_filter_recipients_before_send', $recipients );
+	// Load topic recipients
+	// if ( ! $topic_author ) {
+	// $topic_author = bbp_get_topic_author_id( $topic_id );
+	// }
+	// $recipients = $this->get_recipients( $forum_id, $type = 'topic', $topic_id, $topic_author );
+	// $recipients = apply_filters( 'bbpress_topic_notify_recipients', $recipients, $topic_id, $forum_id );
+	// $recipients = apply_filters( 'bbpnns_filter_recipients_before_send', $recipients );
 
-		$this->queued_recipients = $recipients;
+	// $this->queued_recipients = $recipients;
 
-		// Add topic filter for core notifications
-		add_filter( 'bbp_forum_subscription_user_ids', array( $this, 'filter_queued_recipients' ), 10, 1 );
-	}
+	// Add topic filter for core notifications
+	// add_filter( 'bbp_forum_subscription_user_ids', array( $this, 'filter_queued_recipients' ), 10, 1 );
+	// }
 
 
 	/**
@@ -1308,22 +1314,22 @@ class bbPress_Notify_noSpam_Controller_Common_Core extends bbPress_Notify_noSpam
 	 * @param array $user_ids Array of user IDs to load.
 	 * @return array Associative array of user objects keyed by ID.
 	 */
-	public function filter_queued_recipients( $user_ids ) {
-		$clean = array();
-		if ( ! empty( $this->queued_recipients ) ) {
-			foreach ( $user_ids as $id ) {
-				if ( isset( $this->queued_recipients[ $id ] ) ) {
-					continue;
-				}
+	// public function filter_queued_recipients( $user_ids ) {
+	// $clean = array();
+	// if ( ! empty( $this->queued_recipients ) ) {
+	// foreach ( $user_ids as $id ) {
+	// if ( isset( $this->queued_recipients[ $id ] ) ) {
+	// continue;
+	// }
 
-				$clean[] = $id;
-			}
-		} else {
-			$clean = $user_ids;
-		}
+	// $clean[] = $id;
+	// }
+	// } else {
+	// $clean = $user_ids;
+	// }
 
-		return $clean;
-	}
+	// return $clean;
+	// }
 
 
 	/**
@@ -1402,9 +1408,9 @@ class bbPress_Notify_noSpam_Controller_Common_Core extends bbPress_Notify_noSpam
 		$is_dry_run = apply_filters( 'bbpnns_dry_run', false );
 
 		// Used to avoid duplicate notifications between ourselves and core bbpress in certain scenarios.
-		$this->queued_recipients = $recipients;
-		add_filter( 'bbp_forum_subscription_user_ids', array( $this, 'filter_queued_recipients' ), 10, 1 );
-		add_filter( 'bbp_topic_subscription_user_ids', array( $this, 'filter_queued_recipients' ), 10, 1 );
+		// $this->queued_recipients = $recipients;
+		// add_filter( 'bbp_forum_subscription_user_ids', array( $this, 'filter_queued_recipients' ), 10, 1 );
+		// add_filter( 'bbp_topic_subscription_user_ids', array( $this, 'filter_queued_recipients' ), 10, 1 );
 
 		// Try to bypass timeout issues
 		if ( $this->doing_cron ) {
@@ -1453,12 +1459,14 @@ class bbPress_Notify_noSpam_Controller_Common_Core extends bbPress_Notify_noSpam
 				 *
 				 * @since 1.6.4
 				 */
-				$debug_enabled = ( defined('WP_DEBUG') && WP_DEBUG ) || ( defined('BBPNNS_DEBUG') && BBPNNS_DEBUG );
+				$debug_enabled = ( defined( 'WP_DEBUG' ) && WP_DEBUG ) || ( defined( 'BBPNNS_DEBUG' ) && BBPNNS_DEBUG );
 
-				if ( $debug_enabled ) { $__bbpnns_filter_start = microtime(true); }
+				if ( $debug_enabled ) {
+					$__bbpnns_filter_start = microtime( true ); }
 				$filtered_body    = apply_filters( 'bbpnns_filter_email_body_for_user', $body, $user_info, $type, $post_id, $forum_id );
 				$filtered_subject = apply_filters( 'bbpnns_filter_email_subject_for_user', $subject, $user_info, $type, $post_id, $forum_id );
-				if ( $debug_enabled ) { $__bbpnns_filter_elapsed = round( microtime(true) - $__bbpnns_filter_start, 4 ); }
+				if ( $debug_enabled ) {
+					$__bbpnns_filter_elapsed = round( microtime( true ) - $__bbpnns_filter_start, 4 ); }
 
 				/**
 				 * Replace user name tags
@@ -1528,9 +1536,11 @@ class bbPress_Notify_noSpam_Controller_Common_Core extends bbPress_Notify_noSpam
 				// Turn on nl2br for wpMandrill
 				add_filter( 'mandrill_nl2br', array( $this, 'handle_mandrill_nl2br' ), 10, 2 );
 
-				if ( $debug_enabled ) { $__bbpnns_wp_mail_start = microtime(true); }
+				if ( $debug_enabled ) {
+					$__bbpnns_wp_mail_start = microtime( true ); }
 				$wp_mail_ok = wp_mail( $email, $filtered_subject, $filtered_body, $recipient_headers );
-				if ( $debug_enabled ) { $__bbpnns_wp_mail_elapsed = round( microtime(true) - $__bbpnns_wp_mail_start, 4 ); }
+				if ( $debug_enabled ) {
+					$__bbpnns_wp_mail_elapsed = round( microtime( true ) - $__bbpnns_wp_mail_start, 4 ); }
 
 				if ( ! $wp_mail_ok ) {
 					do_action( 'bbpnns_email_failed_single_user', $user_info, $filtered_subject, $filtered_body, $recipient_headers, $this->wp_mail_error );
@@ -1544,7 +1554,7 @@ class bbPress_Notify_noSpam_Controller_Common_Core extends bbPress_Notify_noSpam
 				do_action( 'bbpnns_after_wp_mail', $user_info, $filtered_subject, $filtered_body, $recipient_headers );
 
 				if ( $debug_enabled ) {
-					error_log( '[bbpnns] send_notification: user_id=' . intval( $recipient_id ) . ' email=' . $email . ' filter_elapsed=' . ( isset($__bbpnns_filter_elapsed)?$__bbpnns_filter_elapsed:'0' ) . 's wp_mail_elapsed=' . ( isset($__bbpnns_wp_mail_elapsed)?$__bbpnns_wp_mail_elapsed:'0' ) . 's wp_mail_result=' . var_export( $wp_mail_ok, true ) . ' wp_mail_error=' . ( is_null($this->wp_mail_error) ? 'null' : (string) $this->wp_mail_error ) );
+					error_log( '[bbpnns] send_notification: user_id=' . intval( $recipient_id ) . ' email=' . $email . ' filter_elapsed=' . ( isset( $__bbpnns_filter_elapsed ) ? $__bbpnns_filter_elapsed : '0' ) . 's wp_mail_elapsed=' . ( isset( $__bbpnns_wp_mail_elapsed ) ? $__bbpnns_wp_mail_elapsed : '0' ) . 's wp_mail_result=' . var_export( $wp_mail_ok, true ) . ' wp_mail_error=' . ( is_null( $this->wp_mail_error ) ? 'null' : (string) $this->wp_mail_error ) );
 				}
 
 				// Turn off nl2br for wpMandrill

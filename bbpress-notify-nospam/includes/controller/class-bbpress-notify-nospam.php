@@ -16,7 +16,7 @@ defined( 'ABSPATH' ) || exit;
  * @phpcsSuppress PEAR.NamingConventions.ValidClassName.StartWithCapital -- Legacy class name kept for backward compatibility.
  */
 class bbPress_Notify_noSpam /* phpcs:ignore PEAR.NamingConventions.ValidClassName.StartWithCapital,PEAR.NamingConventions.ValidClassName.Invalid */ {
-	const VERSION = '3.0.1';
+	const VERSION = '3.0.2';
 
 	/**
 	 * The singletons

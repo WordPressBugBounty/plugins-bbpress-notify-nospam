@@ -5,11 +5,11 @@ Author URI: https://www.usestrict.net/
 Plugin URI: https://usestrict.net/2013/02/bbpress-notify-nospam/
 Tags: bbpress, buddyboss, email notification, forum notifications, no spam
 Requires at least: 3.1
-Tested up to: 6.9
+Tested up to: 6.9.1
 Text Domain: bbpress-notify-nospam
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Stable Tag: 3.0.1
+Stable Tag: 3.0.2
 Requires PHP: 5.6
 Powerful, customizable email notifications for bbPress and BuddyBoss forums — without the spam.
 
@@ -86,6 +86,9 @@ Absolutely. Developers have access to dozens of filters and actions. Non-coders 
 4. Support tab  
 
 == Changelog ==
+= 3.0.2 =
+* Remove filter_recepient functions that were no longer needed, but still got run and adversely impacted sites with many recipients.
+
 = 3.0.1 =
 * Make magic properties work with isset() and other functions.
 

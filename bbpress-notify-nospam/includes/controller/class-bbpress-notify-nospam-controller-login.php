@@ -52,6 +52,9 @@ class bbPress_Notify_noSpam_Controller_Login extends bbPress_Notify_noSpam {
 		if ( isset( $_GET['bbpnns-login'] ) ) {
 			$redirect_to = isset( $_GET['redirect_to'] ) ? sanitize_text_field( wp_unslash( $_GET['redirect_to'] ) ) : '';
 
+			// Validate redirect target to a safe URL (fallback to home_url on invalid).
+			$redirect_to = wp_validate_redirect( $redirect_to, home_url( '/' ) );
+
 			if ( ! is_user_logged_in() ) {
 				$login_url = apply_filters( 'bbpnns-login-url', wp_login_url( $redirect_to ), $_GET );
 
@@ -100,7 +103,7 @@ class bbPress_Notify_noSpam_Controller_Login extends bbPress_Notify_noSpam {
 				add_query_arg(
 					array(
 						'bbpnns-login' => 1,
-						'redirect_to'  => urlencode( $url ),
+						'redirect_to'  => $url,
 					),
 					home_url( '/' )
 				)
